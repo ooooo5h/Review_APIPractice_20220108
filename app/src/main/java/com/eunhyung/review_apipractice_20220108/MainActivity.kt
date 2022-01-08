@@ -2,7 +2,9 @@ package com.eunhyung.review_apipractice_20220108
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.eunhyung.review_apipractice_20220108.adapters.ReviewAdapter
 import com.eunhyung.review_apipractice_20220108.models.BasicResponse
 import com.eunhyung.review_apipractice_20220108.models.ReviewData
@@ -46,7 +48,7 @@ class MainActivity : BaseActivity() {
 
         mReviewAdatper = ReviewAdapter(mContext, mReviewList)
         reviewRecyclerview.adapter = mReviewAdatper
-        reviewRecyclerview.layoutManager = LinearLayoutManager(mContext)
+        reviewRecyclerview.layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
 
 
