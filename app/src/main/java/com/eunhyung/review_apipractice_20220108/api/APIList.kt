@@ -1,5 +1,7 @@
 package com.eunhyung.review_apipractice_20220108.api
 
+import com.eunhyung.review_apipractice_20220108.models.BasicResponse
+import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
@@ -14,6 +16,6 @@ interface APIList {
     fun postRequestLogin(
         @Field("email") email : String,
         @Field("password") pw : String,
-    )
+    ) : Call<BasicResponse>   // (특정 클래스=>BasicResponse 형태의 응답을 받는)API 호출 기능을 만들어냄
 
 }
