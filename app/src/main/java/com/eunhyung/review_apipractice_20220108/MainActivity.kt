@@ -37,9 +37,15 @@ class MainActivity : AppCompatActivity() {
 //                    성공/실패의 경우가 나뉨
                     if (response.isSuccessful) {
 //                        로그인 성공 => 아이디와 비밀번호 모두 일치
-                        Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+
+//                        ~~님 환영합니다! 토스트 출력
+                        val br = response.body()!!   // 서버의 응답 본문(body)을 자동 분석된 BasicResponse형태로 저장
+                        val loginUserNick = br.data.user.nick_name
+
+                        Toast.makeText(this@MainActivity, "${loginUserNick}님, 환영합니다!", Toast.LENGTH_SHORT).show()
                     }
-                    else {
+                   else {
 //                        로그인 실패 => 아이디나 비밀번호가 틀림
                         Toast.makeText(this@MainActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
                     }
