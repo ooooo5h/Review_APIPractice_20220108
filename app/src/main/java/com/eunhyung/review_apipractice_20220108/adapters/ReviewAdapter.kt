@@ -17,9 +17,15 @@ class ReviewAdapter(
 
     inner class MyViewHolder(val row : View) : RecyclerView.ViewHolder(row){
 
+        val imgThumbnail = row.findViewById<ImageView>(R.id.imgThumbnail)
+        val imgUserProfile = row.findViewById<ImageView>(R.id.imgUserProfile)
+        val txtReviewTitle = row.findViewById<TextView>(R.id.txtReviewTitle)
+        val txtUserNickname = row.findViewById<TextView>(R.id.txtUserNickname)
+
         fun bind(data: ReviewData) {
 
-
+            txtUserNickname.text = data.user.nick_name
+            txtReviewTitle.text = data.title
 
         }
 
