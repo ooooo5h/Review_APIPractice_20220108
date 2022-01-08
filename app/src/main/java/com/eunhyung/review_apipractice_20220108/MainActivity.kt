@@ -2,9 +2,14 @@ package com.eunhyung.review_apipractice_20220108
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.eunhyung.review_apipractice_20220108.api.APIList
 import com.eunhyung.review_apipractice_20220108.api.ServerAPI
+import com.eunhyung.review_apipractice_20220108.models.BasicResponse
 import kotlinx.android.synthetic.main.activity_main.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +27,32 @@ class MainActivity : AppCompatActivity() {
             val apiList = retrofit.create(APIList::class.java)  //  연결 도구 + 기능목록 결합 객체 생성
 
 //            실제 로그인 기능 호출(Request를 날린다)
-            apiList.postRequestLogin(inputEmail, inputPw)
+            apiList.postRequestLogin(inputEmail, inputPw).enqueue(object : Callback<BasicResponse>{
+                override fun onResponse(
+                    call: Call<BasicResponse>,
+                    response: Response<BasicResponse>
+                ) {
+
+//                    로그인의 성공/실패던 응답 자체가 돌아온 경우(서버 정상 동작)
+//                    성공/실패의 경우가 나뉨
+                    if (response.isSuccessful) {
+//                        로그인 성공 => 아이디와 비밀번호 모두 일치
+                        Toast.makeText(this@MainActivity, "로그인 성공", Toast.LENGTH_SHORT).show()
+                    }
+                    else {
+//                        로그인 실패 => 아이디나 비밀번호가 틀림
+                        Toast.makeText(this@MainActivity, "로그인 실패", Toast.LENGTH_SHORT).show()
+                    }
+
+                }
+
+                override fun onFailure(call: Call<BasicResponse>, t: Throwable) {
+
+//                    서버 연결 자체를 물리적으로 실패한 경우
+                }
+
+
+            })
         }
     }
 }
