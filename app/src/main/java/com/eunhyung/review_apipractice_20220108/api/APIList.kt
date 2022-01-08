@@ -34,4 +34,9 @@ interface APIList {
         @Query("type") type : String,
         @Query("value") value : String,
     ) : Call<BasicResponse>
+
+
+//    * 리뷰 가져오기
+    @GET("/review")
+    fun getRequestAllReview() : Call<BasicResponse>
 }
