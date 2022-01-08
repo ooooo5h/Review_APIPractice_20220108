@@ -1,5 +1,6 @@
 package com.eunhyung.review_apipractice_20220108
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.GridLayoutManager
@@ -22,6 +23,13 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        btnMyProfile.setOnClickListener {
+
+            val myIntent = Intent(mContext, MyProfileActivity::class.java)
+            startActivity(myIntent)
+
+        }
 
         apiList.getRequestAllReview().enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
