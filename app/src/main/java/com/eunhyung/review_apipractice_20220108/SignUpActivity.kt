@@ -3,6 +3,7 @@ package com.eunhyung.review_apipractice_20220108
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.eunhyung.review_apipractice_20220108.api.APIList
 import com.eunhyung.review_apipractice_20220108.api.ServerAPI
 import com.eunhyung.review_apipractice_20220108.models.BasicResponse
@@ -42,7 +43,10 @@ class SignUpActivity : AppCompatActivity() {
                         val br = response.body()!!  // BasicResponse를 추출
 
 //                         회원가입 성공처리만 br변수를 이용해서 진행
+                        val signUpNickname = br.data.user.nick_name
+                        Toast.makeText(this@SignUpActivity, "${signUpNickname}님 회원가입을 축하합니다!!", Toast.LENGTH_SHORT).show()
 
+                        finish()  // 로그인 화면으로 복귀
                     }
                     else {
 
