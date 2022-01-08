@@ -41,6 +41,12 @@ class LoginActivity : BaseActivity() {
                         val loginUserNick = br.data.user.nick_name
 
                         Toast.makeText(this@LoginActivity, "${loginUserNick}님, 환영합니다!", Toast.LENGTH_SHORT).show()
+
+//                        메인화면으로 이동시키자
+                        val myIntent = Intent(mContext, MainActivity::class.java)
+                        startActivity(myIntent)
+
+                        finish()
                     }
                    else {
 //                        로그인 실패 => 아이디나 비밀번호가 틀림
