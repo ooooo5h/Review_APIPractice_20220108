@@ -21,6 +21,8 @@ class SignUpActivity : AppCompatActivity() {
 //            API 호출(회원가입) => ServerAPI + APIList 조합
             val retrofit = ServerAPI.getRetrofit()
             val apiList = retrofit.create(APIList::class.java)
+
+            apiList.putRequestSignUp(inputEmail, inputPw, inputNickname, inputPhoneNum)
         }
     }
 }
