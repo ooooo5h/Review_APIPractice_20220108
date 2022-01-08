@@ -39,4 +39,5 @@ interface APIList {
 //    * 리뷰 가져오기
     @GET("/review")
     fun getRequestAllReview() : Call<BasicResponse>
+
 }
