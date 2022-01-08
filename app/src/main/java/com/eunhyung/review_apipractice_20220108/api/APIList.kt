@@ -2,10 +2,7 @@ package com.eunhyung.review_apipractice_20220108.api
 
 import com.eunhyung.review_apipractice_20220108.models.BasicResponse
 import retrofit2.Call
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.POST
-import retrofit2.http.PUT
+import retrofit2.http.*
 
 interface APIList {
 
@@ -30,4 +27,11 @@ interface APIList {
         @Field("phone") phone : String,
     ) : Call<BasicResponse>
 
+
+//    * 중복 검사
+    @GET("/user")
+    fun getRequestDuplCheck(
+        @Query("type") type : String,
+        @Query("value") value : String,
+    ) : Call<BasicResponse>
 }
