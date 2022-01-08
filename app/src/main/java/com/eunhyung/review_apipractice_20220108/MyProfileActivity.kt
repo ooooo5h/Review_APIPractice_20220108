@@ -19,7 +19,7 @@ class MyProfileActivity : BaseActivity() {
 //        서버에 내 정보를 요청하자(저장된 토큰값을 활용해서, 내가 누구인지 서버에 알려주자)
 
 //        ContextUtil로 저장해둔 토큰을 가져오자
-        apiList.getRequestMyInfo(ContextUtil.getToken(mContext)).enqueue(object : Callback<BasicResponse>{
+        apiList.getRequestMyInfo().enqueue(object : Callback<BasicResponse>{
             override fun onResponse(call: Call<BasicResponse>, response: Response<BasicResponse>) {
 
                 if (response.isSuccessful) {
