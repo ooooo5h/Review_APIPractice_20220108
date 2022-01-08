@@ -76,7 +76,12 @@ class SignUpActivity : AppCompatActivity() {
                     call: Call<BasicResponse>,
                     response: Response<BasicResponse>
                 ) {
-
+                    if (response.isSuccessful){
+                        txtEmailCheckResult.text = "사용해도 좋습니다."
+                    }
+                    else {
+                        txtEmailCheckResult.text = "중복입니다."
+                    }
                 }
 
                 override fun onFailure(call: Call<BasicResponse>, t: Throwable) {

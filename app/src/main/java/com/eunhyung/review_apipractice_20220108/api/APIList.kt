@@ -29,7 +29,7 @@ interface APIList {
 
 
 //    * 중복 검사
-    @GET("/user")
+    @GET("/user/check")
     fun getRequestDuplCheck(
         @Query("type") type : String,
         @Query("value") value : String,
