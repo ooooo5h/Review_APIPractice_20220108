@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.eunhyung.review_apipractice_20220108.R
+import com.eunhyung.review_apipractice_20220108.ViewReviewActivity
 import com.eunhyung.review_apipractice_20220108.models.ReviewData
 
 class ReviewAdapter(
@@ -29,6 +30,14 @@ class ReviewAdapter(
             txtReviewTitle.text = data.title
             Glide.with(mContext).load(data.thumbnail_img).into(imgThumbnail)
             Glide.with(mContext).load(data.user.profile_img).into(imgUserProfile)
+
+            row.setOnClickListener {
+
+                val myIntent = Intent(mContext, ViewReviewActivity::class.java)
+                myIntent.putExtra("review", data)
+                mContext.startActivity(myIntent)
+
+            }
         }
 
     }
