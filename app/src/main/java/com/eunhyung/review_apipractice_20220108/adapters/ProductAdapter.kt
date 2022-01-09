@@ -12,9 +12,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.eunhyung.review_apipractice_20220108.EditReviewActivity
 import com.eunhyung.review_apipractice_20220108.R
 import com.eunhyung.review_apipractice_20220108.models.ProductData
 import com.eunhyung.review_apipractice_20220108.models.ReviewData
+import java.nio.channels.InterruptedByTimeoutException
 import java.text.NumberFormat
 
 class ProductAdapter(
@@ -40,7 +42,9 @@ class ProductAdapter(
 
             btnWriteReview.setOnClickListener {
 
-                Toast.makeText(mContext, "리뷰버튼 눌림", Toast.LENGTH_SHORT).show()
+                val myIntent = Intent(mContext, EditReviewActivity::class.java)
+                myIntent.putExtra("product", data)
+                mContext.startActivity(myIntent)
 
             }
 
