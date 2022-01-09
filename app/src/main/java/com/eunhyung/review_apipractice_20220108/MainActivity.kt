@@ -32,6 +32,8 @@ class MainActivity : BaseActivity() {
 
                 val deviceToken = it.result!!
                 Log.d("FCM토큰", deviceToken)
+
+
             }
 
         }
