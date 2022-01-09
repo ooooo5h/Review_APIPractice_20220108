@@ -71,7 +71,7 @@
                 android:layout_height="wrap_content"
                 android:text="리뷰 등록"/>
 
-        /LinearLayout>
+        </LinearLayout>
 
     </ScrollView>
 
