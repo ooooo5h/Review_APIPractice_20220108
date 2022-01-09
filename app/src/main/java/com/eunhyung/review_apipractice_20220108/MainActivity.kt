@@ -3,12 +3,14 @@ package com.eunhyung.review_apipractice_20220108
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.eunhyung.review_apipractice_20220108.adapters.ReviewAdapter
 import com.eunhyung.review_apipractice_20220108.models.BasicResponse
 import com.eunhyung.review_apipractice_20220108.models.ReviewData
+import com.google.firebase.messaging.FirebaseMessaging
 import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Callback
@@ -23,6 +25,17 @@ class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseMessaging.getInstance().token.addOnCompleteListener {
+
+            if (it.isSuccessful){
+
+                val deviceToken = it.result!!
+                Log.d("FCM토큰", deviceToken)
+            }
+
+        }
+
 
         btnViewProduct.setOnClickListener {
 
