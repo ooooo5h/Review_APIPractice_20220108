@@ -45,4 +45,9 @@ interface APIList {
     @GET("/user")
     fun getRequestMyInfo(): Call<BasicResponse>
 
+
+//    * 상품 목록 가져오기
+    @GET("/product")
+    fun getRequestAllProduct() : Call<BasicResponse>
+
 }
