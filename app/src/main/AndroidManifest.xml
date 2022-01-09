@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Review_APIPractice_20220108">
         <activity
+            android:name=".ProductListActivity"
+            android:exported="false" />
+        <activity
             android:name=".MyProfileActivity"
             android:exported="false" />
         <activity
